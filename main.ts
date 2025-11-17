@@ -10,6 +10,7 @@ function level_4 () {
     game.showLongText("DIT CO2 ER FOR HØJT! VERDEN ER VED AT GÅ UNDER", DialogLayout.Center)
     info.setScore(100)
     info.startCountdown(20)
+    scene.cameraShake(4, 300000)
     scene.setBackgroundImage(img`
         fffffffffffffffffffffffffffffff4fffffffffffffff4ffffffffffffffff4ffffffffffffffff44fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         fffffffffffffffffffffffffffffff444fffffffffffff44fffffffffffff4444ffffffffffffff444fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -590,7 +591,7 @@ function intro () {
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         `)
     game.setDialogTextColor(15)
-    game.showLongText("Udledningen af CO2 gasser er større end nogensiden!", DialogLayout.Bottom)
+    game.showLongText("Udledningen af CO2 gasser er større end nogensinde!", DialogLayout.Bottom)
     scene.setBackgroundImage(img`
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff44ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff4fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -1536,7 +1537,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.DårligAffald, function (sprite,
 function winConditionMet (num: number) {
     if (num == 3 && info.score() <= 50) {
         game.showLongText("DU HAR REDDET PLANETEN!!!", DialogLayout.Center)
-        game.setGameOverEffect(true, effects.starField)
+        game.gameOver(true)
     }
 }
 let myNPC1: Sprite = null
